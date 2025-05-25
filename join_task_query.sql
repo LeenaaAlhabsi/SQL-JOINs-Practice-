@@ -139,3 +139,9 @@ JOIN JobSeekers JS2 ON JS1.City = JS2.City AND JS1.SeekerID <> JS2.SeekerID
 JOIN Applications A2 ON JS2.SeekerID = A2.SeekerID
 JOIN Jobs J2 ON A2.JobID = J2.JobID
 WHERE J1.JobID <> J2.JobID
+
+-- Task 14 – “One-Way Interest” 
+SELECT JSs.FullName AS Seeker , J.Title AS JobTitle , J.Location AS JobLocation , JSs.City AS SeekerCity
+FROM JobSeekers JSs JOIN Applications A ON JSs.SeekerID = A.SeekerID
+JOIN Jobs J ON A.JobID = J.JobID
+WHERE JSs.City <> J.Location
