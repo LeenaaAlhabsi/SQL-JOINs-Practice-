@@ -114,3 +114,8 @@ select FullName
 from JobSeekers JSs join Applications A on JSs.SeekerID = A.SeekerID 
 join Jobs J on A.JobID = J.JobID  
 where salary > 850 AND JSs.City <> J.Location
+
+-- Task 10 – “Unmatched Applications” 
+select FullName , City , Location
+from JobSeekers JSs join Applications A on JSs.SeekerID = A.SeekerID 
+join Jobs J on A.JobID = J.JobID
