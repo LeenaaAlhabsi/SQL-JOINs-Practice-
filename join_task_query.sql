@@ -88,3 +88,8 @@ where JSs.SeekerID = A.SeekerID AND J.JobID = A.JobID AND JSs.City = J.Location
 select FullName as seeker , Title as job , Status as applyStatus
 from JobSeekers JSs left join Applications A on JSs.SeekerID = A.SeekerID
 left join Jobs J on A.JobID = J.JobID
+
+-- Task 5 – “Job Posting Visibility”
+select Title as jobTitle , FullName as jobSeeker
+from Jobs J left join Applications A on J.JobID = A.JobID
+left join JobSeekers JSs on A.SeekerID = JSs.SeekerID
