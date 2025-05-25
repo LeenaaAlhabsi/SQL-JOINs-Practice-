@@ -123,10 +123,19 @@ join Jobs J on A.JobID = J.JobID
 -- Task 11 – “Jobs With No Applicants” 
 SELECT J.Title AS Job_Title
 FROM Jobs J LEFT JOIN Applications A ON J.JobID = A.JobID
-WHERE A.AppID IS NULL;
+WHERE A.AppID IS NULL
 
 -- Task 12 – “Applications From the Same City” 
 SELECT JSs.FullName AS Seeker_Name , J.Title AS Job_Title , JSs.City AS Matching_City
 FROM JobSeekers JSs JOIN Applications A ON JSs.SeekerID = A.SeekerID
 JOIN Jobs J ON A.JobID = J.JobID
-WHERE JSs.City = J.Location;
+WHERE JSs.City = J.Location
+
+-- Task 13 – “Different Job, Same City Applicants”
+SELECT JS1.FullName AS Seeker1_Name , JS2.FullName AS Seeker2_Name , JS1.City AS Shared_City , J1.Title AS Job1_Title , J2.Title AS Job2_Title
+FROM JobSeekers JS1  JOIN Applications A1 ON JS1.SeekerID = A1.SeekerID
+JOIN Jobs J1 ON A1.JobID = J1.JobID
+JOIN JobSeekers JS2 ON JS1.City = JS2.City AND JS1.SeekerID <> JS2.SeekerID
+JOIN Applications A2 ON JS2.SeekerID = A2.SeekerID
+JOIN Jobs J2 ON A2.JobID = J2.JobID
+WHERE J1.JobID <> J2.JobID
