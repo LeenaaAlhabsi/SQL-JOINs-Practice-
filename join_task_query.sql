@@ -98,3 +98,8 @@ left join JobSeekers JSs on A.SeekerID = JSs.SeekerID
 select FullName as seeker , Email
 from JobSeekers JSs left join Applications A on JSs.SeekerID = A.SeekerID
 where A.AppID IS NULL
+
+-- Task 7 – “Vacant Companies”
+select Name AS COMPANYNAME
+from Companies C left join Jobs J on C.CompanyID = J.CompanyID
+where J.JobID IS NULL
