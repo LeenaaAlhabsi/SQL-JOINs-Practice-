@@ -83,3 +83,8 @@ left join Companies C on C.CompanyID = J.CompanyID
 select FullName , Title , City
 from JobSeekers JSs , Jobs J, Applications A
 where JSs.SeekerID = A.SeekerID AND J.JobID = A.JobID AND JSs.City = J.Location
+
+-- Task 4 – “All Seekers with or without Applications” 
+select FullName as seeker , Title as job , Status as applyStatus
+from JobSeekers JSs left join Applications A on JSs.SeekerID = A.SeekerID
+left join Jobs J on A.JobID = J.JobID
