@@ -93,3 +93,8 @@ left join Jobs J on A.JobID = J.JobID
 select Title as jobTitle , FullName as jobSeeker
 from Jobs J left join Applications A on J.JobID = A.JobID
 left join JobSeekers JSs on A.SeekerID = JSs.SeekerID
+
+-- Task 6 – “Ghost Seekers” 
+select FullName as seeker , Email
+from JobSeekers JSs left join Applications A on JSs.SeekerID = A.SeekerID
+where A.AppID IS NULL
