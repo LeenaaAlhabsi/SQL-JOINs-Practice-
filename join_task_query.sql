@@ -103,3 +103,8 @@ where A.AppID IS NULL
 select Name AS COMPANYNAME
 from Companies C left join Jobs J on C.CompanyID = J.CompanyID
 where J.JobID IS NULL
+
+-- Task 8 – “Same City, Different People” 
+select JS1.FullName as seeker1 , JS2.FullName as seeker2 , JS1.City as Shared_City
+from JobSeekers JS1 join JobSeekers JS2 
+on JS1.City = JS2.City AND JS1.SeekerID <> JS2.SeekerID
