@@ -70,12 +70,8 @@ INSERT INTO Applications VALUES
 
 -- Task 1 – “Who Got What?”
 select FullName , Title , Name
-from JobSeekers JS , Jobs J, Companies C, Applications A
-where JS.SeekerID = A.SeekerID AND J.JobID = A.JobID AND C.CompanyID = J.CompanyID
+from JobSeekers JSs , Jobs J, Companies C, Applications A
+where JSs.SeekerID = A.SeekerID AND J.JobID = A.JobID AND C.CompanyID = J.CompanyID
 
--- Task 2 – “Empty Chairs” 
-select Title AS JOPTITLE , Name
-from Jobs J left join Applications A
-on J.JobID = A.JobID
-left join Companies C on C.CompanyID = J.CompanyID
+
 
