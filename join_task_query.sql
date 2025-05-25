@@ -119,3 +119,8 @@ where salary > 850 AND JSs.City <> J.Location
 select FullName , City , Location
 from JobSeekers JSs join Applications A on JSs.SeekerID = A.SeekerID 
 join Jobs J on A.JobID = J.JobID
+
+-- Task 11 – “Jobs With No Applicants” 
+SELECT J.Title AS Job_Title
+FROM Jobs J LEFT JOIN Applications A ON J.JobID = A.JobID
+WHERE A.AppID IS NULL;
