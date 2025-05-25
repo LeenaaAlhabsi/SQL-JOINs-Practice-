@@ -79,3 +79,7 @@ from Jobs J left join Applications A
 on J.JobID = A.JobID 
 left join Companies C on C.CompanyID = J.CompanyID
 
+-- Task 3 – “Who Lives Where They Work?”
+select FullName , Title , City
+from JobSeekers JSs , Jobs J, Applications A
+where JSs.SeekerID = A.SeekerID AND J.JobID = A.JobID AND JSs.City = J.Location
