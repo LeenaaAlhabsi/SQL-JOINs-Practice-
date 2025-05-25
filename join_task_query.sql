@@ -73,5 +73,9 @@ select FullName , Title , Name
 from JobSeekers JSs , Jobs J, Companies C, Applications A
 where JSs.SeekerID = A.SeekerID AND J.JobID = A.JobID AND C.CompanyID = J.CompanyID
 
-
+-- Task 2 – “Empty Chairs”
+select Title AS JopTitle , Name as CompanyName
+from Jobs J left join Applications A
+on J.JobID = A.JobID 
+left join Companies C on C.CompanyID = J.CompanyID
 
