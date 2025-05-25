@@ -124,3 +124,9 @@ join Jobs J on A.JobID = J.JobID
 SELECT J.Title AS Job_Title
 FROM Jobs J LEFT JOIN Applications A ON J.JobID = A.JobID
 WHERE A.AppID IS NULL;
+
+-- Task 12 – “Applications From the Same City” 
+SELECT JSs.FullName AS Seeker_Name , J.Title AS Job_Title , JSs.City AS Matching_City
+FROM JobSeekers JSs JOIN Applications A ON JSs.SeekerID = A.SeekerID
+JOIN Jobs J ON A.JobID = J.JobID
+WHERE JSs.City = J.Location;
