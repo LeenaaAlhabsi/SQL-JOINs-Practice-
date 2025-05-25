@@ -145,3 +145,9 @@ SELECT JSs.FullName AS Seeker , J.Title AS JobTitle , J.Location AS JobLocation 
 FROM JobSeekers JSs JOIN Applications A ON JSs.SeekerID = A.SeekerID
 JOIN Jobs J ON A.JobID = J.JobID
 WHERE JSs.City <> J.Location
+
+-- Task 15 – “Jobless City, Active People” 
+SELECT DISTINCT JSs.City
+FROM JobSeekers JSs
+LEFT JOIN Companies C ON JSs.City = C.City
+WHERE C.City IS NULL
