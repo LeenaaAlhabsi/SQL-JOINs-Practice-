@@ -108,3 +108,9 @@ where J.JobID IS NULL
 select JS1.FullName as seeker1 , JS2.FullName as seeker2 , JS1.City as Shared_City
 from JobSeekers JS1 join JobSeekers JS2 
 on JS1.City = JS2.City AND JS1.SeekerID <> JS2.SeekerID
+
+--Task 9 – “High Salary, Wrong City”
+select FullName
+from JobSeekers JSs join Applications A on JSs.SeekerID = A.SeekerID 
+join Jobs J on A.JobID = J.JobID  
+where salary > 850 AND JSs.City <> J.Location
